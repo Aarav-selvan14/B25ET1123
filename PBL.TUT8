@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+class Personal {
+protected:
+    int id;
+    string name;
+    int age;
+
+public:
+    void acceptPersonal() {
+        cout << "Enter Employee ID: ";
+        cin >> id;
+        cout << "Enter Employee Name: ";
+        cin >> name;
+        cout << "Enter Employee Age: ";
+        cin >> age;
+    }
+};
+
+class Department {
+protected:
+    string dept;
+    int joiningYear;
+
+public:
+    void acceptDepartment() {
+        cout << "Enter Department Name: ";
+        cin >> dept;
+        cout << "Enter Joining Year: ";
+        cin >> joiningYear;
+    }
+};
+
+class Employee : public Personal, public Department {
+public:
+    void display() {
+        int currentYear = 2026;
+        int service = currentYear - joiningYear;
+
+        cout << "\n--- Employee Details ---" << endl;
+        cout << "Employee ID: " << id << endl;
+        cout << "Employee Name: " << name << endl;
+        cout << "Employee Age: " << age << endl;
+        cout << "Department: " << dept << endl;
+        cout << "Years of Service: " << service << endl;
+    }
+};
+
+int main() {
+    Employee e;
+
+    e.acceptPersonal();
+    e.acceptDepartment();
+    e.display();
+
+    return 0;
+}
